@@ -1,14 +1,18 @@
 const express = require('express')
 const connectDB = require('./config/db')
-const userRouter = require('./api/users')
-const authRouter = require('./api/auth')
-const profileRouter = require('./api/pofile')
-const postRouter = require('./api/posts')
+const userRouter = require('./Routes/api/users')
+const authRouter = require('./Routes/api/auth')
+const profileRouter = require('./Routes/api/profile')
+const postRouter = require('./Routes/api/posts')
 
 const app = express()
 
 //DB Connection
 connectDB()
+
+// Middlewares
+
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send(200).json({ message: 'Server Running' })
