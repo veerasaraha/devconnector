@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://admin:devconnector@devconnector.vvouw.mongodb.net/devconnector?retryWrites=true&w=majority",
-  "jwtSecret": "QWRTYPOIU0987654321!@#$%^&*()MNBVCXZLKJHGFDSA"
+  "jwtSecret": "QWRTYPOIU0987654321!@#$%^&*()MNBVCXZLKJHGFDSA",
+  "githubClientID": "bb70c08ece5f96600e0c",
+  "githbSecret": "f730efea7beb4203438826f99838d9253229fa17"
 }
