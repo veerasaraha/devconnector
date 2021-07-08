@@ -336,8 +336,7 @@ button {
   background: url('./img/showcase.jpg') no-repeat center center/cover;
   height: 100vh;
 }
-s
-.landing-inner {
+s .landing-inner {
   color: #fff;
   height: 100%;
   width: 80%;
