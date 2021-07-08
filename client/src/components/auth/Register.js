@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,18 +12,18 @@ const Register = () => {
 
   const { name, email, password, confirmPassword } = formData
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (password !== confirmPassword) {
       console.log('Passwords do not match')
     } else {
-      console.log(formData)
+      console.log('Register here')
     }
   }
   return (
@@ -78,7 +80,7 @@ const Register = () => {
         <input type='submit' className='btn btn-primary' value='Register' />
       </form>
       <p className='my-1'>
-        Already have an account? <a href='login.html'>Sign In</a>
+        Already have an account? <Link to='/login'>Sign In</Link>
       </p>
     </Fragment>
   )
