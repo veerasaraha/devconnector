@@ -25,7 +25,7 @@ router.post(
     //checking error
     if (!errors.isEmpty()) {
       return res.status(400).json({
-        error: errors.array()[0],
+        errors: errors.array(),
       })
     }
 
