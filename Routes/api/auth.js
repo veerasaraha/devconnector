@@ -8,15 +8,13 @@ const auth = require('../../middleware/auth')
 const User = require('../../models/User')
 
 // @route  GET api/auth
-// @desc   Test route
+// @desc   Get user by ID
 // @access Public
 router.get('/', auth, async (req, res) => {
   try {
-    const users = await User.findById(req.user.id).select('-password')
+    const user = await User.findById(req.user.id).select('-password')
 
-    res.status(200).json({
-      users,
-    })
+    res.status(200).json(user)
   } catch (error) {
     console.error(error.message)
     res.status(500).json({
@@ -32,14 +30,14 @@ router.post(
   '/',
   [
     check('email', 'please provide a valid email').isEmail(),
-    check('password', 'Password is required').exists(),
+    check('password', 'Password is required').not().isEmpty().exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req)
     //checking error
     if (!errors.isEmpty()) {
       return res.status(400).json({
-        error: errors.array()[0],
+        errors: errors.array(),
       })
     }
 
@@ -52,7 +50,7 @@ router.post(
         return res.status(400).json({
           errors: [
             {
-              message: 'Invalid Credentials',
+              msg: 'Invalid Credentials',
             },
           ],
         })
@@ -64,7 +62,7 @@ router.post(
         return res.status(400).json({
           errors: [
             {
-              message: 'Invalid Credentials',
+              msg: 'Invalid Credentials',
             },
           ],
         })
