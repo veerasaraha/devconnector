@@ -7,6 +7,7 @@ import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import Alert from './components/layout/Alert'
 
 const App = () => {
   return (
@@ -16,11 +17,10 @@ const App = () => {
           <Navbar />
           <Route exact path='/' component={Landing} />
           <section className='container'>
+            <Alert />
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
-              <Route exact path='' component={''} />
-              <Route exact path='' component={''} />
             </Switch>
           </section>
         </Fragment>
