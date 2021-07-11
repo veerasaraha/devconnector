@@ -68,9 +68,9 @@ router.post(
     } = req.body
 
     // Build profile object
-    const profileFields = {}
-
-    profileFields.user = req.user.id
+    const profileFields = {
+      user: req.user.id,
+    }
 
     if (company) profileFields.company = company
     if (website) profileFields.website = website
@@ -92,9 +92,10 @@ router.post(
 
     try {
       let profile = await Profile.findOne({ user: req.user.id })
+
       // if profile found update the profile
       if (profile) {
-        profile = await Profile.findByIdAndUpdate(
+        profile = await Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
           { new: true }
