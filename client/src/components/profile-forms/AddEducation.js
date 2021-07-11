@@ -89,7 +89,7 @@ const AddEducation = ({ addEducation, history }) => {
                 setToDateDisplay(!toDataDisplay)
               }}
             />{' '}
-            Current Job
+            Current School Or Bootcamp
           </p>
         </div>
         <div className='form-group'>
