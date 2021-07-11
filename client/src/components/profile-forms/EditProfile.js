@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { createProfile, getCurrentProfile } from '../../actions/profile'
 
@@ -59,9 +59,7 @@ const EditProfile = ({
       youtube: loading || !profile.social ? '' : profile.social.youtube,
       instagram: loading || !profile.social ? '' : profile.social.instagram,
     })
-  }, [])
-
-  console.log(profile)
+  }, [getCurrentProfile])
 
   const handleChange = (e) => {
     const { name, value } = e.target
